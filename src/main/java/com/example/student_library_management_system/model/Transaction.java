@@ -22,7 +22,7 @@ public class Transaction {
     private String dueDate;
 
     @Column(name = "fine", nullable = false)
-    private String fine;
+    private int fine;
 
     @Column(name = "transaction_type", nullable = false)
     @Enumerated(value = EnumType.STRING)
@@ -60,11 +60,11 @@ public class Transaction {
         this.dueDate = dueDate;
     }
 
-    public String getFine() {
+    public int getFine() {
         return fine;
     }
 
-    public void setFine(String fine) {
+    public void setFine(int fine) {
         this.fine = fine;
     }
 

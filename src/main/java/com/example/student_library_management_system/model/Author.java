@@ -22,6 +22,9 @@ public class Author {
     @Column(name="email", nullable = false, unique = true)
     private String email;
 
+    @Column(name = "gender", nullable = false)
+    private String gender;
+
     @Column(name="country", nullable = false)
     private String country;
 
@@ -77,5 +80,13 @@ public class Author {
 
     public void setBookList(List<Book> bookList) {
         this.bookList = bookList;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

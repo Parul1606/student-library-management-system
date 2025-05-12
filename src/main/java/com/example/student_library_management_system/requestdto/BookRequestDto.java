@@ -1,65 +1,22 @@
-package com.example.student_library_management_system.model;
+package com.example.student_library_management_system.requestdto;
 
 import com.example.student_library_management_system.enums.Category;
-import com.example.student_library_management_system.enums.TransactionType;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
-import java.util.List;
+public class BookRequestDto {
 
-@Entity
-@Table(name="book")
-public class Book {
-
-    // -> id, title, publisher name, publisher date, pages, price, availability(true or false), category, rackNo
-
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "title", nullable = false)
     private String title;
-
-    @Column(name = "publisher_name", nullable = false)
     private String publisherName;
-
-    @Column(name = "published_date", nullable = false)
     private String publishedDate;
-
-    @Column(name = "pages", nullable = false)
     private String pages;
-
-    @Column(name = "price", nullable = false)
     private double price;
-
-    @Column(name = "availability", nullable = false)
     private boolean availability;
-
-    @Column(name = "category", nullable = false)
-    @Enumerated(value = EnumType.STRING)
     private Category category;
-
-    @Column(name = "rack_no", nullable = false)
     private String rackNo;
-
-    @ManyToOne
-    @JoinColumn
-    private Author author;
-
-    @JoinColumn
-    @ManyToOne
-    private Card card;
-
-    @OneToMany(mappedBy = "book")
-    private List<Transaction> transactionList;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private int authorId;
+    private int cardId;
 
     public String getTitle() {
         return title;
@@ -125,20 +82,19 @@ public class Book {
         this.rackNo = rackNo;
     }
 
-    public Author getAuthor() {
-        return author;
+    public int getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 
-    public Card getCard() {
-        return card;
+    public int getCardId() {
+        return cardId;
     }
 
-    public void setCard(Card card) {
-        this.card = card;
+    public void setCardId(int cardId) {
+        this.cardId = cardId;
     }
-
 }
