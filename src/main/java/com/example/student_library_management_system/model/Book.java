@@ -36,6 +36,15 @@ public class Book {
     @Enumerated(value = EnumType.STRING)
     private Category category;
 
+    @ManyToOne
+    @JoinColumn
+    private Author author;
+
+    @JoinColumn
+    @ManyToOne
+    private Card card;
+
+
     @Column(name = "rack_no", nullable = false)
     private String rackNo;
 
@@ -110,4 +119,21 @@ public class Book {
     public void setRackNo(String rackNo) {
         this.rackNo = rackNo;
     }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+    }
+
 }

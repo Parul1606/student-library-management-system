@@ -36,6 +36,10 @@ public class Student {
     @Column(name = "dob", nullable = false)
     private String dob;
 
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)  // one student will have one card, Cascade = cascadeType.ALL - whatever(add.=/delete) operations performs on student will automatically take place on card.
+    private Card card;
+
+
     public int getId() {
         return id;
     }
@@ -106,5 +110,13 @@ public class Student {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
     }
 }

@@ -3,6 +3,8 @@ package com.example.student_library_management_system.model;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
+import java.util.List;
+
 @Entity
 @Table(name="author")
 public class Author {
@@ -25,6 +27,9 @@ public class Author {
 
     @Column(name="rating", nullable = false)
     private double rating;
+
+    @OneToMany(mappedBy = "author")
+    private List<Book> bookList;
 
     public int getId() {
         return id;
@@ -64,5 +69,13 @@ public class Author {
 
     public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
     }
 }
