@@ -6,7 +6,7 @@ import com.example.student_library_management_system.requestdto.BookRequestDto;
 import com.example.student_library_management_system.requestdto.TransactionRequestDto;
 
 public class TransactionConverter {
-    public static Transaction converterTransactioRequestDtoIntoTrabsaction(TransactionRequestDto TransactionRequestDto){
+    public static Transaction convertTransactionRequestDtoIntoTrabsaction(TransactionRequestDto TransactionRequestDto){
         Transaction transaction = new Transaction();
 
         transaction.setDueDate(TransactionRequestDto.getDueDate());

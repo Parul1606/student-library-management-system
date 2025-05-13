@@ -7,7 +7,7 @@ import com.example.student_library_management_system.requestdto.StudentRequestDt
 
 public class AuthorConverter {
 
-    public static Author converAuthorRequestDtoIntoAuthor(AuthorRequestDto authorRequestDto){
+    public static Author convertAuthorRequestDtoIntoAuthor(AuthorRequestDto authorRequestDto){
         Author author = new Author();
 
         author.setName(authorRequestDto.getName());

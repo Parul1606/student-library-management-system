@@ -7,7 +7,7 @@ public class StudentConverter {
 
     //converter - it converts the requestdto into model classes so that model class can be saved in database
 
-    public static Student converStudentRequestDtoIntoStudent(StudentRequestDto studentRequestDto){
+    public static Student convertStudentRequestDtoIntoStudent(StudentRequestDto studentRequestDto){
         Student student = new Student();
 
         student.setName(studentRequestDto.getName());

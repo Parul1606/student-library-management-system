@@ -7,7 +7,7 @@ import com.example.student_library_management_system.requestdto.CardRequestDto;
 
 public class CardConverter {
 
-    public static Card converterCardRequestDtoIntoCard(CardRequestDto cardRequestDto){
+    public static Card convertCardRequestDtoIntoCard(CardRequestDto cardRequestDto){
         Card card = new Card();
 
         card.setCardStatus(cardRequestDto.getCardStatus());

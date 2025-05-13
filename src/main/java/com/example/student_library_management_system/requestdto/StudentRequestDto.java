@@ -12,7 +12,6 @@ public class StudentRequestDto {
     private String dept;
     private String sem;
     private String gender;
-    private String address;
     private String dob;
 
     public String getName() {
@@ -61,14 +60,6 @@ public class StudentRequestDto {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getDob() {

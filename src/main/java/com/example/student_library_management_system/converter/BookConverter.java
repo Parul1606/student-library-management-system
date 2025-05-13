@@ -5,7 +5,7 @@ import com.example.student_library_management_system.requestdto.AuthorRequestDto
 import com.example.student_library_management_system.requestdto.BookRequestDto;
 
 public class BookConverter {
-    public static Book converterBookRequestDtoIntoBook(BookRequestDto bookRequestDto){
+    public static Book convertBookRequestDtoIntoBook(BookRequestDto bookRequestDto){
         Book book = new Book();
 
         book.setTitle(bookRequestDto.getTitle());
