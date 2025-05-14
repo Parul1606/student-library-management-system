@@ -9,6 +9,7 @@ import com.example.student_library_management_system.requestdto.StudentRequestDt
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -62,10 +63,23 @@ public class StudentService {
     4th page - 21-25
     5th page - 26-28
     6th page - 0
+
+    if i want to perform only pagination
+    public List<Student> getAllStudentsByPage(int pageNo, int pageSize){
+        List<Student> studentList = studentRepository.findAll(PageRequest.of(pageNo, pageSize)).getContent();
+        return studentList;
+    }
+    then this method
+
+    if pagination + sorting then this method 👇🏼
+    public List<Student> getAllStudentsByPage(int pageNo, int pageSize){
+        List<Student> studentList = studentRepository.findAll(PageRequest.of(pageNo, pageSize, Sort.by("name").ascending())).getContent();
+        return studentList;
+    }
     */
 
     public List<Student> getAllStudentsByPage(int pageNo, int pageSize){
-        List<Student> studentList = studentRepository.findAll(PageRequest.of(pageNo, pageSize)).getContent();
+        List<Student> studentList = studentRepository.findAll(PageRequest.of(pageNo, pageSize, Sort.by("name").ascending())).getContent();
         return studentList;
     }
 
