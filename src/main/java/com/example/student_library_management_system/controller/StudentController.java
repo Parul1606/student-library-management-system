@@ -44,4 +44,10 @@ public class StudentController {
         String response = studentService.updateStudent(id, studentRequestDto);
         return response;
     }
+
+    @GetMapping("/getByPage")
+    public List<Student> findStudentByPage(@RequestParam int pageNo, int pageSize){
+        List<Student> studentList = studentService.getAllStudentsByPage(pageNo, pageSize);
+        return studentList;
+    }
 }

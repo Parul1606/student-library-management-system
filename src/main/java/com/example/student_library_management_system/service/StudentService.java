@@ -7,6 +7,8 @@ import com.example.student_library_management_system.model.Student;
 import com.example.student_library_management_system.repository.StudentRepository;
 import com.example.student_library_management_system.requestdto.StudentRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,6 +49,26 @@ public class StudentService {
         return studentList;
     }
 
+    /*
+    //PAGINATION - fetching or getting the records or data in the form of pages
+    pageNumber - the number of page we want to see(0,1,2,3,4,5,..)
+    pageSize - total no of records in each page(fixed for all pages)
+
+    total no of records - 28, pageSize - 5
+    0th page - 1-5
+    1st page - 6-10
+    2nd page - 11-15
+    3rd page - 16-20
+    4th page - 21-25
+    5th page - 26-28
+    6th page - 0
+    */
+
+    public List<Student> getAllStudentsByPage(int pageNo, int pageSize){
+        List<Student> studentList = studentRepository.findAll(PageRequest.of(pageNo, pageSize)).getContent();
+        return studentList;
+    }
+
     public String deleteStudentById(int id){
         studentRepository.deleteById(id);
         return "student with id: " + id + " got deleted along with its card";
@@ -70,5 +92,4 @@ public class StudentService {
             return "Student not found, we cannot update!";
         }
     }
-
 }
