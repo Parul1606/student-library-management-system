@@ -17,14 +17,23 @@ public class StudentController {
 
     @PostMapping("/save")
     public String saveStudent(@RequestBody StudentRequestDto studentRequestDto){
-        String response = studentService.addStudent(studentRequestDto);
-        return response;
+        try{
+            String response = studentService.addStudent(studentRequestDto);
+            return response;
+        } catch(Exception e){
+            return " exception occurred: " + e.getMessage();
+        }
     }
 
     @GetMapping("/find/{id}")
     public Student findStudentById(@PathVariable int id){
-        Student student = studentService.getStudentById(id);
-        return student;
+        try{
+            Student student = studentService.getStudentById(id);
+            return student;
+        } catch(Exception e){
+            return null;
+        }
+
     }
 
     @GetMapping("/findAll")
